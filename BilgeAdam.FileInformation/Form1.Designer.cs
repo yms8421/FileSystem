@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lstContents = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPathOrName = new System.Windows.Forms.TextBox();
             this.trvStructure = new System.Windows.Forms.TreeView();
             this.lsvInfo = new System.Windows.Forms.ListView();
+            this.lscName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lscType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lscSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lscLastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imlIcons = new System.Windows.Forms.ImageList(this.components);
             this.btnGetInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -62,18 +69,57 @@
             // 
             // trvStructure
             // 
+            this.trvStructure.ImageIndex = 0;
+            this.trvStructure.ImageList = this.imlIcons;
             this.trvStructure.Location = new System.Drawing.Point(243, 44);
             this.trvStructure.Name = "trvStructure";
+            this.trvStructure.SelectedImageIndex = 0;
             this.trvStructure.Size = new System.Drawing.Size(285, 394);
             this.trvStructure.TabIndex = 3;
+            this.trvStructure.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvStructure_NodeMouseDoubleClick);
             // 
             // lsvInfo
             // 
+            this.lsvInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lscName,
+            this.lscType,
+            this.lscSize,
+            this.lscLastModified});
+            this.lsvInfo.LargeImageList = this.imlIcons;
             this.lsvInfo.Location = new System.Drawing.Point(534, 44);
             this.lsvInfo.Name = "lsvInfo";
             this.lsvInfo.Size = new System.Drawing.Size(585, 394);
+            this.lsvInfo.SmallImageList = this.imlIcons;
             this.lsvInfo.TabIndex = 4;
             this.lsvInfo.UseCompatibleStateImageBehavior = false;
+            // 
+            // lscName
+            // 
+            this.lscName.Text = "Ad";
+            this.lscName.Width = 180;
+            // 
+            // lscType
+            // 
+            this.lscType.Text = "Tür";
+            // 
+            // lscSize
+            // 
+            this.lscSize.Text = "Boyut";
+            // 
+            // lscLastModified
+            // 
+            this.lscLastModified.Text = "Değiştirme Tarihi";
+            this.lscLastModified.Width = 150;
+            // 
+            // imlIcons
+            // 
+            this.imlIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlIcons.ImageStream")));
+            this.imlIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlIcons.Images.SetKeyName(0, "folder.png");
+            this.imlIcons.Images.SetKeyName(1, "image.png");
+            this.imlIcons.Images.SetKeyName(2, "json.png");
+            this.imlIcons.Images.SetKeyName(3, "text.png");
+            this.imlIcons.Images.SetKeyName(4, "other.png");
             // 
             // btnGetInfo
             // 
@@ -114,6 +160,11 @@
         private System.Windows.Forms.TreeView trvStructure;
         private System.Windows.Forms.ListView lsvInfo;
         private System.Windows.Forms.Button btnGetInfo;
+        private System.Windows.Forms.ColumnHeader lscName;
+        private System.Windows.Forms.ColumnHeader lscType;
+        private System.Windows.Forms.ColumnHeader lscSize;
+        private System.Windows.Forms.ColumnHeader lscLastModified;
+        private System.Windows.Forms.ImageList imlIcons;
     }
 }
 
